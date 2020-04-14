@@ -1,0 +1,29 @@
+<button type="button" class="btn btn-sm btn-primary js_add" style="margin-bottom:10px;">添加</button>
+<div class="table-responsive">
+    <table class="table table-striped table-hover js_table">
+    </table>
+</div>
+
+<nav style="float:right;">
+    <ul class="pagination js_page"></ul>
+</nav>
+
+<!-- 确认删除弹窗 -->
+<div class="modal fade" id="confirmModal" tabindex="2" role="dialog" aria-labelledby="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                提示
+            </div>
+            <div class="modal-body">
+                是否确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary js_sure_delete">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="<?php echo $resource_url; ?>js/system/role_index.js"></script>

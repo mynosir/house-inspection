@@ -1,0 +1,46 @@
+body, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, 微软雅黑;
+}
+body {
+    background: #f3f3f3;
+    color: #000;
+    font-size: 14px;
+}
+a {
+    color: #000;
+    display: block;
+    text-decoration: none;
+}
+img {
+    border: none;
+    display: block;
+}
+em {
+    font-style: normal;
+}
+ol, ul, li {
+    /*list-style: none;*/
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+p {
+    word-wrap: break-word;
+}
+.clearfloat {
+    zoom: 1;
+}
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+.dn {
+    display: none;
+}

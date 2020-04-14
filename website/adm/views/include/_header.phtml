@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <meta name="description" content="">
+        <meta name="author" content="linzequan">
+        <title>楼盘H5管理系统</title>
+        <!-- Bootstrap core CSS -->
+        <link href="<?php echo $resource_url; ?>css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="<?php echo $resource_url; ?>css/dashboard.css" rel="stylesheet">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="<?php echo $resource_url; ?>js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script src="<?php echo $resource_url; ?>js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="<?php echo $resource_url; ?>js/html5shiv.min.js"></script>
+            <script src="<?php echo $resource_url; ?>js/respond.min.js"></script>
+        <![endif]-->
+        <script src="<?php echo $resource_url; ?>js/jquery.min.js"></script>
+        <script src="<?php echo $resource_url; ?>js/common.js?v=1"></script>
+
+        <script type="text/javascript">
+            window.current_menu = '<?php echo $current_menu ? $current_menu : "index"; ?>';
+            window.current_sub_menu = '<?php echo isset($current_sub_menu) ? $current_sub_menu : (count($sub_menu)>0 ? $sub_menu[0]["item"] : ""); ?>';
+            window.base_url = '<?php echo $base_url; ?>';
+        </script>
+        <style type="text/css">
+            .nav-header {
+                padding: 15px 20px;
+                font-size: 18px;
+                color: #999;
+            }
+            .nav-sidebar > li > a {
+                padding-left: 25px;
+            }
+            .required {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index">楼盘H5管理系统</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:void(0)" style="color: #f1efef;">当前用户: <?php echo $admin_info['username'] . '【' . $admin_info['realname'] . '】'; ?></a></li>
+                        <li><a href="javascript:void(0)" class="js_logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar js_sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="nav-header">应用菜单</li>
+                        <li class="js_item_index"><a href="/adm/index">Dashboard<span class="sr-only">(current)</span></a></li>
+                        <?php
+                        foreach($menu_list['appMenu'] as $v) {
+                            $prefix = '';
+                            $i = 0;
+                            while($v['level'] > 0) {
+                                $prefix .= '|--';
+                                $v['level']--;
+                                $i++;
+                            }
+                            $prefix = '<span style="padding-left: ' . ($i * 20) . 'px;">' . $prefix . '</span>';
+                        ?>
+                        <li class="js_item_<?php echo $v['mark']; ?>"><a href="<?php echo $v['ctrl_name']; ?>"><?php echo $prefix . $v['name']; ?></a></li>
+                        <?php
+                        }
+                        if($menu_list['sysMenu'] == 1) {
+                        ?>
+                        <li class="nav-header">系统菜单</li>
+                        <li class="js_item_menu"><a href="/adm/menu">菜单管理</a></li>
+                        <li class="js_item_role"><a href="/adm/role">角色管理</a></li>
+                        <li class="js_item_admin"><a href="/adm/admin">用户管理</a></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+                <div class="alert alert-success" style="display:none;" role="alert">...</div>
+                <div class="alert alert-info" style="display:none;" role="alert">...</div>
+                <div class="alert alert-warning" style="display:none;" role="alert">...</div>
+                <div class="alert alert-danger" style="display:none;" role="alert">...</div>
+                <h1 class="page-header"><?php echo $current_menu_text; ?></h1>
+                <?php
+                if(count($sub_menu)>=1) {
+                ?>
+                <ul class="nav nav-tabs js_sub_menu">
+                    <?php foreach($sub_menu as $item) { ?>
+                    <li role="presentation" class="js_sub_menu <?php echo $item["item"]; ?>"><a href="<?php echo $item['url']; ?>"><?php echo $item['label']; ?></a></li>
+                    <?php } ?>
+                </ul>
+                <?php
+                }
+                ?>

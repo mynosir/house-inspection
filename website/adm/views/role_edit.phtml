@@ -1,0 +1,58 @@
+<form class="form-horizontal">
+    <input type="hidden" name="id" class="js_update_id" value="<?php if(isset($roleId)) echo $roleId; ?>">
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">角色名称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control js_add_name" placeholder="Role Name" value="<?php if(isset($roleInfo)) echo $roleInfo['name']; ?>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pms" class="col-sm-2 control-label">菜单权限</label>
+        <div class="col-sm-10" style="padding-top: 7px;">
+            <?php
+            if(isset($roleInfo)) {
+                $pmsArr = explode(',', $roleInfo['pms']);
+            } else {
+                $pmsArr = array();
+            }
+            foreach($sys_menu as $item) {
+            ?>
+            <div style="display: block; margin-bottom: 20px;">
+                <?php
+                if($item['level'] > 0) {
+                    $prefix = '<span style="display: inline-block; padding-left: ' . (30 * $item['level']) . 'px">|--</span>';
+                } else {
+                    $prefix = '';
+                }
+                echo $prefix . $item['name'] . '<span style="color: #9c9c9c;">(' . $item['ctrl_name'] . ')</span>&nbsp;&nbsp;';
+                if(in_array($item['id'], $pmsArr)) {
+                    $checked = ' checked ';
+                } else {
+                    $checked = '';
+                }
+                ?>
+                <input type="checkbox" name="pms" <?php echo $checked; ?> value="<?php echo $item['id']; ?>">
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php
+            if(isset($roleId)) {
+            ?>
+            <button type="button" class="btn btn-primary js_update_saveBtn">确定</button>
+            <?php
+            } else {
+            ?>
+            <button type="button" class="btn btn-primary js_add_saveBtn">确定</button>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</form>
+
+<script src="<?php echo $resource_url; ?>js/system/role_index.js"></script>

@@ -1,0 +1,192 @@
+<div class="well well-sm">
+    <form class="form-inline js_searchFrom">
+        <div class="form-group">
+            <label for="username">账号</label>
+            <input type="text" class="form-control" id="username" placeholder="Account">
+        </div>
+        <div class="form-group">
+            <label for="realname">姓名</label>
+            <input type="text" class="form-control" id="realname" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="telephone">手机号码</label>
+            <input type="text" class="form-control" id="telephone" placeholder="Telephone">
+        </div>
+        <button type="submit" class="btn btn-primary">搜索</button>
+        |
+        <button type="button" class="btn btn-success js_addbanner" data-toggle="modal" data-target="#addModal">添加</button>
+    </form>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover js_table">
+    </table>
+</div>
+
+<nav style="float:right;">
+    <ul class="pagination js_page"></ul>
+</nav>
+
+<!-- 新增菜单弹窗 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-3 control-label"><span class="required">*</span>账号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_add_username" placeholder="Account">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label"><span class="required">*</span>密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control js_add_password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="realname" class="col-sm-3 control-label"><span class="required">*</span>姓名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_add_realname" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone" class="col-sm-3 control-label">手机号码</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_add_telephone" placeholder="Telephone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_add_email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="role_id" class="col-sm-3 control-label"><span class="required">*</span>角色</label>
+                        <div class="col-sm-9">
+                            <select class="form-control js_add_role_id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="is_admin" class="col-sm-3 control-label"><span class="required">*</span>超级管理员</label>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_admin" class="js_add_is_admin" value="1">是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_admin" class="js_add_is_admin" value="0" checked="true">否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning: </strong> 确认前请检查好信息！
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary js_add_saveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑菜单弹窗 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" class="js_update_id">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-3 control-label"><span class="required">*</span>账号</label>
+                        <div class="col-sm-9">
+                            <p class="form-control-static js_update_username"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label"><span class="required">*</span>密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control js_update_password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="realname" class="col-sm-3 control-label"><span class="required">*</span>姓名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_update_realname" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone" class="col-sm-3 control-label">手机号码</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_update_telephone" placeholder="Telephone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control js_update_email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="role_id" class="col-sm-3 control-label"><span class="required">*</span>角色</label>
+                        <div class="col-sm-9">
+                            <select class="form-control js_update_role_id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="is_admin" class="col-sm-3 control-label"><span class="required">*</span>超级管理员</label>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="is_admin" class="js_update_is_admin" value="1">是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="is_admin" class="js_update_is_admin" value="0">否
+                            </label>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning: </strong> 确认前请检查好信息！
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary js_saveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认删除弹窗 -->
+<div class="modal fade" id="confirmModal" tabindex="2" role="dialog" aria-labelledby="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                提示
+            </div>
+            <div class="modal-body">
+                是否确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary js_sure_delete">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="<?php echo $resource_url; ?>js/system/admin_index.js?v=1"></script>

@@ -1,0 +1,86 @@
+body, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, 微软雅黑;
+}
+body {
+    background: #0d3590;
+    color: #000;
+    font-size: 50px;
+}
+a {
+    color: #000;
+    display: block;
+    text-decoration: none;
+}
+img {
+    border: none;
+    display: block;
+}
+em {
+    font-style: normal;
+}
+ol, ul, li {
+    /*list-style: none;*/
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+p {
+    word-wrap: break-word;
+}
+.clearfloat {
+    zoom: 1;
+}
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+.dn {
+    display: none;
+}
+
+.logo {
+    position: absolute;
+    width: 2.2rem;
+    top: .8rem;
+    left: .5rem;
+}
+.slogan {
+    position: absolute;
+    bottom: 1rem;
+    width: 8rem;
+    left: 1rem;
+}
+.menu-list {
+    position: absolute;
+    top: 2.8rem;
+    left: 1.5rem;
+}
+.query-btn {
+    width: 7rem;
+    margin-top: .7rem;
+}
+.queue-btn {
+    width: 7rem;
+    margin-top: 2.2rem;
+}
+.queue-btn-list {
+    top: 2.8rem;
+}
+.download-btn {
+    width: 7rem;
+    margin-top: 1rem;
+}
+.download-text {
+    width: 7rem;
+    margin-top: .3rem;
+}
+.download-btn-list {
+    top: 2.3rem;
+}

@@ -1,0 +1,136 @@
+<button type="button" class="btn btn-sm btn-primary js_addbanner" data-toggle="modal" data-target="#addModal" style="margin-bottom:10px;">添加</button>
+<div class="table-responsive">
+    <table class="table table-striped table-hover js_table">
+    </table>
+</div>
+
+<!-- 新增菜单弹窗 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-4 control-label">菜单名称</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_add_name" id="name" placeholder="Menu Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctrl_name" class="col-sm-4 control-label">控制器</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_add_ctrl_name" id="ctrl_name" placeholder="Controller">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="menuTree" class="col-sm-4 control-label">父级菜单</label>
+                        <div class="col-sm-8">
+                            <select class="form-control js_add_menuTree">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sort" class="col-sm-4 control-label">排序</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_add_sort" id="sort" placeholder="Rank(sort desending)" value="5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mark" class="col-sm-4 control-label">标识</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_add_mark" id="ctrl_name" placeholder="Mark">
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning: </strong> 确认前请检查好信息！
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary js_add_saveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 编辑菜单弹窗 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" class="js_update_id">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-4 control-label">菜单标题</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_update_name" placeholder="Menu Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ctrl_name" class="col-sm-4 control-label">控制器</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_update_ctrl_name" placeholder="Controller">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="menuTree" class="col-sm-4 control-label">父级菜单</label>
+                        <div class="col-sm-8">
+                            <select class="form-control js_update_menuTree">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sort" class="col-sm-4 control-label">排序</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_update_sort" placeholder="Rank(sort desending)" value="5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mark" class="col-sm-4 control-label">标识</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control js_update_mark" placeholder="Mark">
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning: </strong> 确认前请检查好信息！
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary js_saveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认删除弹窗 -->
+<div class="modal fade" id="confirmModal" tabindex="2" role="dialog" aria-labelledby="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                提示
+            </div>
+            <div class="modal-body">
+                是否确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary js_sure_delete">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="<?php echo $resource_url; ?>js/system/menu_index.js"></script>
