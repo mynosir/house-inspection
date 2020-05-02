@@ -15,7 +15,7 @@ $(function() {
                 if (res.status == 0) {
                     var idx = 1,
                         list = res['data'],
-                        listTpl = '<tr><th style="width:82px">编号</th><th style="width:120px">菜单名称</th><th>控制器</th><th>排序</th><th>Mark</th><th>创建用户</th><th>创建时间</th><th>更新用户</th><th>更新时间</th><th style="width:140px">操作</th></tr>';
+                        listTpl = '<tr><th style="width:82px">编号</th><th style="width:120px">菜单名称</th><th>控制器</th><th>排序</th><th>标志</th><th>创建用户</th><th>创建时间</th><th>更新用户</th><th>更新时间</th><th style="width:140px">操作</th></tr>';
                     for (var i in list) {
                         listTpl += '<tr>';
                         listTpl += '<td>' + (idx++) + '</td>';
